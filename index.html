@@ -88,18 +88,24 @@
     content: ''; display: block; width: 32px; height: 1px;
     background: var(--accent);
   }
+
+  /* ── HERO NAME: tightened tracking, preserved scale ── */
   h1.hero-name {
-    font-size: clamp(4rem, 8vw, 9rem);
-    font-weight: 800; line-height: 0.9;
-    letter-spacing: -0.04em;
+    font-size: clamp(3.5rem, 7vw, 8rem);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.05em;   /* tighter than before (-0.04em) */
     margin-bottom: 0.5rem;
     color: var(--text);
+    font-stretch: condensed;
   }
   h1.hero-name span { color: var(--accent); }
+
   .hero-title {
     font-family: var(--font-serif);
-    font-style: italic; font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-style: italic; font-size: clamp(1.1rem, 2vw, 1.75rem);
     color: var(--muted); margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
   }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
@@ -132,9 +138,15 @@
   .section-label::after {
     content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--accent);
   }
+
+  /* ── SECTION TITLES: key fix — tighter tracking + reduced max size ── */
   h2.section-title {
-    font-size: clamp(2rem, 3vw, 3.5rem); font-weight: 800;
-    letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1.5rem;
+    font-size: clamp(1.85rem, 2.6vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;   /* was -0.03em, now tighter */
+    line-height: 1.0;          /* was 1.05, slightly tighter */
+    margin-bottom: 1.5rem;
+    word-spacing: -0.05em;     /* pulls words slightly closer */
   }
 
   /* ── ABOUT ── */
@@ -305,6 +317,8 @@
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .projects-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    h1.hero-name { letter-spacing: -0.04em; }
+    h2.section-title { letter-spacing: -0.03em; }
   }
 </style>
 </head>
@@ -312,7 +326,6 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <!-- <div class="nav-logo">cd ~/chetan</div> -->
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -356,7 +369,7 @@
     <div class="about-text">
       <h2 class="section-title">I turn messy<br/>data into<br/>sharp decisions.</h2>
       <p>I'm a <strong>Data Scientist &amp; ML Engineer</strong> with 5 years of experience and a Master's in Computer Information Systems from <strong>Boston University</strong> (GPA 3.85). My work spans classical ML, large language models, agentic AI, and production-grade generative AI systems.</p>
-      <p>At <strong>Route Mobile</strong> I owned the full ML lifecycle — from building and monitoring Airflow-powered data pipelines to shipping customer segmentation (KMeans) and demand forecasting (XGBoost) models. I love working at the intersection of <strong> LLMs, RAG architectures, and autonomous agents </strong></p>
+      <p>At <strong>Route Mobile</strong> I owned the full ML lifecycle — from building and monitoring Airflow-powered data pipelines to shipping customer segmentation (KMeans) and demand forecasting (XGBoost) models. I love working at the intersection of <strong>LLMs, RAG architectures, and autonomous agents.</strong></p>
       <p>When I'm not training models, I'm designing systems that think, reason, and act.</p>
       <div class="about-chips">
         <span class="chip accent">Agentic AI</span>
@@ -533,24 +546,27 @@
     </div>
 
     <div class="timeline-item">
-      <div class="timeline-date">2022 — 2022</div>
+      <div class="timeline-date">2020 — 2022</div>
       <div class="timeline-role">Data Scientist</div>
       <div class="timeline-company">Route Mobile Limited</div>
       <ul class="timeline-bullets">
-        <li>Built and monitored automated data pipelines using Python, SQL, and Airflow for telecom messaging at scale</li>
-        <li>Developed machine learning models for customer segmentation (KMeans) and demand pattern analysis (XGBoost)</li>
-        <li>Collaborated cross-functionally to ship ML features impacting millions of messages</li>
+        <li>Built and monitored automated data pipelines using Python, SQL, and Airflow — enabling reliable, low-latency data delivery for downstream analytics and ML workflows</li>
+        <li>Developed ML models for customer segmentation (KMeans) and demand pattern analysis (XGBoost) — increasing targeting precision by 20% and boosting campaign ROI by 15%</li>
+        <li>Developed reusable Python utilities for preprocessing, feature engineering, and model evaluation — improving workflow consistency across the team</li>
+        <li>Collaborated with engineering and business stakeholders to deliver deployment-ready ML solutions that reduced reporting errors and accelerated decision-making</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-date">2017 — 2020</div>
-      <div class="timeline-role">Software Developer</div>
-      <div class="timeline-company">Finoux Solution Pvt Ltd</div>
+      <div class="timeline-role">Data Scientist</div>
+      <div class="timeline-company">Finoux Solutions Pvt. Ltd.</div>
       <ul class="timeline-bullets">
-        <li>Built full-stack features for fintech products used in production</li>
-        <li>Built modular, maintainable UI components and collaborated with back-end teams on API integrations</li>
-        <li>Laid the engineering foundation that drove the pivot to ML/data science</li>
+        <li>Developed client retention scoring model using Logistic Regression — engineering features from behavioral and transactional signals, surfacing at-risk BFSI client flags via Tableau dashboard</li>
+        <li>Engineered 20+ Tableau dashboards for sales, marketing, and KPIs — improving executive decision-making visibility by 40%</li>
+        <li>Built Python &amp; SQL pipelines automating reporting workflows for external BFSI clients</li>
+        <li>Migrated analytics pipeline from AWS Redshift to GCP BigQuery — cutting infrastructure costs by 37%</li>
+        <li>Optimized SQL query performance by 40% through indexing, partitioning, and query restructuring</li>
       </ul>
     </div>
 
@@ -564,18 +580,15 @@
     <h2 class="section-title">Let's build<br/>something.</h2>
     <p class="contact-tagline">Open to ML Engineer, Data Scientist &amp; AI Engineer roles.<br/>Always interested in interesting problems.</p>
     <div class="contact-links">
-      <!-- UPDATE: Replace href with your actual GitHub URL -->
       <a href="https://github.com/chetanbhanushalii" target="_blank" rel="noopener" class="contact-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
       </a>
-      <!-- UPDATE: Replace href with your actual LinkedIn URL -->
       <a href="http://www.linkedin.com/in/chetan-s-bhanushali" target="_blank" rel="noopener" class="contact-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
     </div>
-    <!-- UPDATE: Replace with your actual email address -->
     <p class="contact-email">chetanbhanushali1995@gmail.com</p>
   </div>
 </section>
